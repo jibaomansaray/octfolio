@@ -23,11 +23,11 @@ class SarcasticStringModifier
             if ($this->isAsciiCharacter($char)) {
                 if ($previousWasCapital) {
                     $char = strtolower($char);
-                    $previousWasCapital = false;
                 } else {
                     $char  = strtoupper($char);
-                    $previousWasCapital = true;
                 }
+
+                $previousWasCapital = !$previousWasCapital;
             }
 
             $converted .= $char;
