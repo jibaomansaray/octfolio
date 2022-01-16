@@ -27,7 +27,7 @@ class TabularTextPrinter
             $left = ltrim($left);
             $right = ltrim($right);
 
-            $spacing =  abs(strlen($left) - $maxSpacing);
+            $spacing =  abs(mb_strlen($left) - $maxSpacing);
             $table .= $left;
 
             if($right) {
@@ -44,7 +44,7 @@ class TabularTextPrinter
     {
         $columnSpacing = 0;
         foreach(array_keys($dataset) as $value) {
-            $current = strlen($value);
+            $current = mb_strlen($value);
             $columnSpacing = ($current > $columnSpacing) ? $current: $columnSpacing;
         }
 
