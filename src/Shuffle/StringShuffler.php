@@ -1,4 +1,5 @@
 <?php
+
 namespace Octfolio\Shuffle;
 
 /**
@@ -8,6 +9,23 @@ class StringShuffler
 {
     public function shuffle(string $input): string
     {
-        throw new \Exception("Not yet implemented");
+        $shuffled = '';
+        $pieces = str_split($input);
+        $previousPlacedOnTheRight = true;
+
+        foreach ($pieces as $index => $char) {
+            if ($index == 0) {
+                $shuffled = $char;
+            } else {
+                if ($previousPlacedOnTheRight) {
+                    $shuffled = $char . $shuffled;
+                } else {
+                    $shuffled .= $char;
+                }
+                $previousPlacedOnTheRight = !$previousPlacedOnTheRight;
+            }
+        }
+
+        return $shuffled;
     }
 }
