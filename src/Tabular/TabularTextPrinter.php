@@ -14,6 +14,40 @@ class TabularTextPrinter
      */
     public function printTabular(array $dataset): string
     {
-        throw new \Exception("Not yet implemented");
+        $minimumSpace = 3;
+        $maxSpacing = $this->getMaxSpacing($dataset) + $minimumSpace;
+        $table = '';
+
+        foreach($dataset as $left => $right) {
+            // make sure we are not dealing with null
+            $left = $left ?? ''; 
+            $right = $right ?? ''; 
+
+            // remove any none visible characters on the left of the values
+            $left = ltrim($left);
+            $right = ltrim($right);
+
+            $spacing =  abs(strlen($left) - $maxSpacing);
+            $table .= $left;
+
+            if($right) {
+                $table .= str_repeat(' ',$spacing). $right;
+            }
+
+            $table .= "\n";
+        }
+
+        return rtrim($table);
+    }
+
+    private function getMaxSpacing(array $dataset): int
+    {
+        $columnSpacing = 0;
+        foreach(array_keys($dataset) as $value) {
+            $current = strlen($value);
+            $columnSpacing = ($current > $columnSpacing) ? $current: $columnSpacing;
+        }
+
+        return $columnSpacing;
     }
 }
