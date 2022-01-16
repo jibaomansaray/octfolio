@@ -2,6 +2,8 @@
 
 namespace Octfolio\Shuffle;
 
+use Octfolio\Libs\StringHelper as Str;
+
 /**
  * Shuffles strings
  */
@@ -10,7 +12,7 @@ class StringShuffler
     public function shuffle(string $input): string
     {
         $shuffled = '';
-        $pieces = str_split($input);
+        $pieces = Str::split($input);
         $previousPlacedOnTheRight = true;
 
         foreach ($pieces as $index => $char) {

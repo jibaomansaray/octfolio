@@ -1,6 +1,8 @@
 <?php
 namespace Octfolio\Sarcasm;
 
+use Octfolio\Libs\StringHelper as Str;
+
 /**
  * A class that provides ways to determine sarcasm
  */
@@ -16,11 +18,11 @@ class SarcasticStringModifier
     {
         $previousWasCapital = false;
         $converted = '';
-        $pieces = str_split($subject);
+        $pieces =  Str::split($subject);
 
         foreach ($pieces as $char) {
             if ($this->isAlphaCharacter($char)) {
-                $char = ($previousWasCapital) ? strtolower($char) : strtoupper($char);
+                $char = ($previousWasCapital) ? Str::lower($char) : Str::upper($char);
                 $previousWasCapital = !$previousWasCapital;
             }
 
