@@ -1,4 +1,5 @@
 <?php
+
 namespace Octfolio\Sarcasm;
 
 use PHPUnit\Framework\TestCase;
@@ -7,7 +8,7 @@ class SarcasticStringModifierTest extends TestCase
 {
     private SarcasticStringModifier $modifier;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->modifier = new SarcasticStringModifier();
@@ -27,9 +28,8 @@ class SarcasticStringModifierTest extends TestCase
         $example1 = 'Oh ReAlLy';
         $example2 = 'WeLl ThAnK yOu';
 
-        $this->assertEquals($this->modifier->convert($example1), $example1);
-        $this->assertEquals($this->modifier->convert($example2), $example2);
-
+        $this->assertEquals($example1, $this->modifier->convert($example1));
+        $this->assertEquals($example2, $this->modifier->convert($example2));
     }
 
     public function test_convertion_is_correct()
@@ -45,10 +45,9 @@ class SarcasticStringModifierTest extends TestCase
             '    ' => '    ',
             '   Happy DaYs' => '   HaPpY dAyS'
         ];
- 
-        foreach($casesAndExpectations as $case => $expectation) {
-            $this->assertEquals($this->modifier->convert($case), $expectation);
+
+        foreach ($casesAndExpectations as $case => $expectation) {
+            $this->assertEquals($expectation, $this->modifier->convert($case));
         }
     }
-
 }
