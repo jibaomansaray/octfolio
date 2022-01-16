@@ -18,8 +18,7 @@ class SarcasticStringModifier
         $converted = '';
         $pieces = str_split($subject);
 
-        foreach ($pieces as $index => $char) {
-            $char = ($index == 0) ? strtolower($char) : $char;
+        foreach ($pieces as $char) {
             if ($this->isAsciiCharacter($char)) {
                 $char = ($previousWasCapital) ? strtolower($char) : strtoupper($char);
                 $previousWasCapital = !$previousWasCapital;
