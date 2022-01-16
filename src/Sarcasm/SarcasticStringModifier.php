@@ -19,7 +19,7 @@ class SarcasticStringModifier
         $pieces = str_split($subject);
 
         foreach ($pieces as $char) {
-            if ($this->isAsciiCharacter($char)) {
+            if ($this->isAlphaCharacter($char)) {
                 $char = ($previousWasCapital) ? strtolower($char) : strtoupper($char);
                 $previousWasCapital = !$previousWasCapital;
             }
@@ -30,7 +30,7 @@ class SarcasticStringModifier
         return $converted;
     }
 
-    private function isAsciiCharacter(string $char): bool
+    private function isAlphaCharacter(string $char): bool
     {
         if (strlen($char) == 1) {
             $intValue = mb_ord($char);
