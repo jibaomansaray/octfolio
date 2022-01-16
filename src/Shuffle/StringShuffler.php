@@ -17,11 +17,7 @@ class StringShuffler
             if ($index == 0) {
                 $shuffled = $char;
             } else {
-                if ($previousPlacedOnTheRight) {
-                    $shuffled = $char . $shuffled;
-                } else {
-                    $shuffled .= $char;
-                }
+                $shuffled = ($previousPlacedOnTheRight) ? $char . $shuffled : $shuffled . $char;
                 $previousPlacedOnTheRight = !$previousPlacedOnTheRight;
             }
         }
