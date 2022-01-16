@@ -59,7 +59,7 @@ Using docker:
 docker run -v $(pwd):/opt/project --rm octfolio/php-challenge:8.1 phpunit tests/Sarcasm/SarcasticStringModifierTest.php
 
 # For the second challenge
-docker run -v $(pwd):/opt/project --rm octfolio/php-challenge:8.1 phpunit tests/Tabluar/TabluarTextPrinterTest.php
+docker run -v $(pwd):/opt/project --rm octfolio/php-challenge:8.1 phpunit tests/Tabular/TabluarTextPrinterTest.php
 
 # For the third challenge
 docker run -v $(pwd):/opt/project --rm octfolio/php-challenge:8.1 phpunit tests/Shuffle/StringShufflerTest.php
