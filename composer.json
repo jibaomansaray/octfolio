@@ -1,0 +1,16 @@
+{
+    "name": "octfolio/candidate-coding-test",
+    "autoload": {
+        "psr-4": {
+            "Octfolio\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Octfolio\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
