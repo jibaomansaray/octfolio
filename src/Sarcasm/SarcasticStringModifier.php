@@ -21,12 +21,7 @@ class SarcasticStringModifier
         foreach ($pieces as $index => $char) {
             $char = ($index == 0) ? strtolower($char) : $char;
             if ($this->isAsciiCharacter($char)) {
-                if ($previousWasCapital) {
-                    $char = strtolower($char);
-                } else {
-                    $char  = strtoupper($char);
-                }
-
+                $char = ($previousWasCapital) ? strtolower($char) : strtoupper($char);
                 $previousWasCapital = !$previousWasCapital;
             }
 
